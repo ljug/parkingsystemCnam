@@ -47,3 +47,9 @@ The app has unit tests and integration tests written. More of these need to be a
 To run the tests from maven, go to the folder that contains the pom.xml file and execute the below command.
 
 `mvn test`
+
+
+### TD
+
+Le probleme de BUG est que la duree entre l'entree et la sortie est calculee en heure et elle est initialise comme integer. Quand on calcule le montant les par exemple pour 45 min ca fait 0 heures et par suite on obtient 0 et pas 0.75 * montant.
+J'ai calcule la duree en minute en cherchant le time en ms depuis 1970 d'entree et de sortie et les divisant par 1000 et 60 et ensuite j'ai divise la duree par 60 pour l'obtenir en heures.
